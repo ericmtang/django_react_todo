@@ -100,7 +100,7 @@ function App() {
           }`}
           title={item.description}
         >
-          {item.title}
+          {item.title} - {item.description}
         </span>
         <span>
           <button
