@@ -56,3 +56,19 @@ jobs:
       - name: Run all tests
         run: pytest -v -rP
 
+  frontend:
+    runs-on: ubuntu-latest
+    needs: backend
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.9
+      - name: Install Node Dependencies
+        run: |
+          yarn install
+          yarn start
